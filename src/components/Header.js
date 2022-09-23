@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from "styled-components";
 import { IoIosSettings, IoIosMic } from "react-icons/io";
+import { useLocation, useNavigate } from 'react-router-dom'
+import { BiArrowBack } from "react-icons/bi";
 
 const Wrapper = styled.div`
     background-color: #1a1015;
@@ -18,6 +20,7 @@ const CurrentYear = styled.div`
     font-weight: bold;
     font-size: 15pt;
     text-align: left;
+    padding-left: 10px;
 `
 
 const Caption = styled.div`
@@ -34,13 +37,20 @@ const Icons = styled.div`
     text-align: right;
 `
 
-export const Header = () => (
-    <Wrapper>
-        <CurrentYear>{new Date().getFullYear()}</CurrentYear>
-        <Caption>Stats</Caption>
-        <Icons>
-            <IoIosMic />
-            <IoIosSettings />
-        </Icons>
-    </Wrapper>
-)
+export const Header = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const isInfo = location.pathname.includes('/coin/');
+
+    return (
+        <Wrapper>
+            {isInfo && <BiArrowBack onClick={() => navigate(-1)} />}
+            <CurrentYear>{new Date().getFullYear()}</CurrentYear>
+            <Caption>Stats</Caption>
+            <Icons>
+                <IoIosMic />
+                <IoIosSettings />
+            </Icons>
+        </Wrapper>
+    )
+}

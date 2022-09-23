@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import styled from "styled-components";
+import { useLocation } from 'react-router-dom'
 
 import Chart from "../images/chart.png";
 import { CurrencyContext } from '../context/CurrencyContext';
@@ -38,6 +39,8 @@ const SearchBox = styled.input`
 export const Banner = () => {
 
   const { query, setQuery } = useContext(CurrencyContext)
+  const location = useLocation();
+  const isInfo = location.pathname.includes('/coin/');
 
   return (
     <Wrapper>
@@ -49,9 +52,10 @@ export const Banner = () => {
         </Caption>
       </CaptionWrapper>
       <SearchBox
-        placeholder='Search by Crypto name (eg: BNB)'
-        value={query}
+        placeholder={ isInfo ? 'Coin Description' : 'Search by Crypto name (eg: BNB)'}
+        value={isInfo ? '' : query}
         onChange={e => setQuery(e.target.value)}
+        disabled={isInfo}
       />
     </Wrapper>
   )
