@@ -3,3 +3,6 @@
 
 # 3rd api
 https://api.coincap.io/v2/assets
+
+# preview
+![Digital Currencies Preview](./preview.png)
