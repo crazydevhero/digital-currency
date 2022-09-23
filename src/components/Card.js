@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styled from "styled-components";
+
+import { CurrencyContext } from '../context/CurrencyContext';
 
 const Wrapper = styled.div`
     background-color: #282a35;
@@ -30,6 +32,10 @@ const Price = styled.div`
 `
 
 export const Card = ({id}) => {
+
+    const { coinForID } = useContext(CurrencyContext);
+    const coin = coinForID(id)[0]
+
   return (
     <Wrapper>
         <More>
@@ -37,9 +43,9 @@ export const Card = ({id}) => {
                 <path d="M16 48C16 30.36 30.36 16 48 16C65.64 16 80 30.36 80 48C80 65.64 65.64 80 48 80C30.36 80 16 65.64 16 48ZM8 48C8 70.08 25.92 88 48 88C70.08 88 88 70.08 88 48C88 25.92 70.08 8 48 8C25.92 8 8 25.92 8 48ZM48 44H32V52H48V64L64 48L48 32V44Z" fill="white" />
             </svg>
         </More>
-        <Description>{'Bitcoin'}</Description>
-        <Symbol>{'BTC'}</Symbol>
-        <Price>${'16372.828349'}</Price>
+        <Description>{coin.name}</Description>
+        <Symbol>{coin.symbol}</Symbol>
+        <Price>${Number(coin.priceUsd).toFixed(6)}</Price>
     </Wrapper>
   )
 }

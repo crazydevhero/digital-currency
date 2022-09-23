@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from "styled-components";
 
 import Chart from "../images/chart.png";
+import { CurrencyContext } from '../context/CurrencyContext';
 
 const Wrapper = styled.div`
   background-color: #1d2025;
@@ -35,6 +36,9 @@ const SearchBox = styled.input`
 `
 
 export const Banner = () => {
+
+  const { query, setQuery } = useContext(CurrencyContext)
+
   return (
     <Wrapper>
       <CaptionWrapper>
@@ -44,7 +48,11 @@ export const Banner = () => {
           <CaptionContent>100 coins</CaptionContent>
         </Caption>
       </CaptionWrapper>
-      <SearchBox placeholder='Search by Crypto name (eg: BNB)' />
+      <SearchBox
+        placeholder='Search by Crypto name (eg: BNB)'
+        value={query}
+        onChange={e => setQuery(e.target.value)}
+      />
     </Wrapper>
   )
 }

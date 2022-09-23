@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled from "styled-components";
 
 import { Card } from './Card'
+import { CurrencyContext } from '../context/CurrencyContext';
 
 const Wrapper = styled.div`
   display: grid;
@@ -22,13 +23,16 @@ const Wrapper = styled.div`
 `
 
 export const Panel = () => {
+
+  const { coins, filterCoinsByQuery } = useContext(CurrencyContext)
+  
   return (
     <Wrapper>
-      <Card id={'btc'} />
-      <Card id={'btc'} />
-      <Card id={'btc'} />
-      <Card id={'btc'} />
-      <Card id={'btc'} />
+      {
+        filterCoinsByQuery().map((coin, index) => (
+          <Card id={coin.id} key={index} />
+        ))
+      }
     </Wrapper>
   )
 }
