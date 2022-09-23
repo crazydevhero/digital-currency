@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from "styled-components";
-// import "../styles/Header.css"
 import { IoIosSettings, IoIosMic } from "react-icons/io";
 
 const Wrapper = styled.div`

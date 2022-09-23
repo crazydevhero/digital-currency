@@ -1,15 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { CurrencyProvider } from './context/CurrencyContext';
 import './index.css';
-import App from './App';
+import App from './pages/App';
+import Coin from './pages/Coin';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <CurrencyProvider>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/coin/:id" element={<Coin />} />
+        <Route path="*" element={<App />} />
+      </Routes>
+    </BrowserRouter>
   </CurrencyProvider>
 );
 
