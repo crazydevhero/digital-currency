@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/digital-currency/static/css/main.855a1099.css",
+    "main.js": "/digital-currency/static/js/main.5aa4af88.js",
+    "static/js/787.b406220c.chunk.js": "/digital-currency/static/js/787.b406220c.chunk.js",
+    "static/media/chart.png": "/digital-currency/static/media/chart.505333092d8514dcdefc.png",
+    "index.html": "/digital-currency/index.html",
+    "main.855a1099.css.map": "/digital-currency/static/css/main.855a1099.css.map",
+    "main.5aa4af88.js.map": "/digital-currency/static/js/main.5aa4af88.js.map",
+    "787.b406220c.chunk.js.map": "/digital-currency/static/js/787.b406220c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.855a1099.css",
+    "static/js/main.5aa4af88.js"
+  ]
+}
