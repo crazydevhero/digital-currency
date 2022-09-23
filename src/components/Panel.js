@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import styled from "styled-components";
 
 import { Card } from './Card'
@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 
 export const Panel = () => {
 
-  const { coins, filterCoinsByQuery } = useContext(CurrencyContext)
+  const { filterCoinsByQuery } = useContext(CurrencyContext)
   
   return (
     <Wrapper>
